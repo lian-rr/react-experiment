@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Table from './Table'
 
 class AccordionCard extends Component {
-    state = {}
     render() {
 
         let { data } = this.props
@@ -17,7 +16,7 @@ class AccordionCard extends Component {
                     </h5>
                 </div>
 
-                <div id={"collapse-card" + data.id} class="collapse show" aria-labelledby={"card_" + data.id} data-parent="#accordionExample">
+                <div id={"collapse-card" + data.id} class="collapse" aria-labelledby={"card_" + data.id} data-parent="#accordionExample">
                     <div class="card-body">
                         <div class="container mt-5">
                             <Table headers={["Name", "Value", "Status"]} data={data.components} />
