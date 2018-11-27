@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Search from './Search';
 import Table from './Table';
+import Accordion from './Accordion';
 
 class Apartments extends Component {
     state = {
@@ -10,8 +11,7 @@ class Apartments extends Component {
 
     render() {
 
-        let headers = ["Id", "Building", "Apartment Number", "Status", "Guest"];
-        let dataBkp = []
+        let headers = ["Id", "Building", "Apartment Number", "Status", "Guest"];        
         let data = [
             {
                 id: 1,
@@ -26,7 +26,42 @@ class Apartments extends Component {
                 number: 402,
                 status: "Available",
                 guest: "Nail Rodriguez"
-            }]
+            }];
+
+        let accordionData = [
+            {
+                id: "1",
+                name: "Product 1",                
+                components: [
+                    {
+                        name: "Component 1",
+                        value: 124,
+                        status: "Working"
+                    }, 
+                    {
+                        name: "Component 2",
+                        value: 1240,
+                        status: "Broken"
+                    }
+                ]
+            },
+            {
+                id: "2",
+                name: "Product 2",
+                components: [
+                    {
+                        name: "Component 1",
+                        value: 124,
+                        status: "Broken"
+                    }, 
+                    {
+                        name: "Component 2",
+                        value: 1240,
+                        status: "New"
+                    }
+                ]
+            }
+        ]
 
         return (
             <div class="mx-auto mt-5">
@@ -39,6 +74,10 @@ class Apartments extends Component {
 
                 <div class="container mt-5">
                     <Table headers={headers} data={data} />
+                </div>
+
+                <div className="container mt-5">
+                    <Accordion data={accordionData} />
                 </div>
             </div>
         );
